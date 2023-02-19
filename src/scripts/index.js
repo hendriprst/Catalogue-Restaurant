@@ -15,7 +15,8 @@ restaurants.forEach(function(restaurant) {
       <div class="card-item__body">
         <p class="card-item__rating" tabindex="0">&#11088 ${rating}/5 Reviews <span class="card-item__city">&#128205 Kota ${city}</span></p>
         <h3 class="card-item__title"><a href="#">${name}</a></h3>
-        <p class="card-item__description">${description.substring(0, 140)}...<a class="card-item__link">Read More</a></p>
+        <p class="card-item__description">${description.substring(0, 140)}...</p>
+        <button class="card-item__link">Read More</button>
       </div>
     </article>`;
 });

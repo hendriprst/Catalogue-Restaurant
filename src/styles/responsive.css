@@ -64,6 +64,14 @@
     margin-right: 16px;
   }
 
+  .card-item__title {
+    padding: 14px 0;
+  }
+
+  .card-item__title a {
+    padding: 14px 0;
+  }
+  
   footer > p {
     font-size: 0.75em;
   }

@@ -70,6 +70,8 @@ body {
   display: block;
   justify-self: end;
   width: 30px;
+  border: none;
+  background: none;
 }
  
 .nav-list {
@@ -87,7 +89,7 @@ body {
   font-size: 1em;
   font-weight: 400;
   color: var(--color-text);
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 1.5rem;
   border-radius: 999px;
   transition: all .2s ease-in-out;
 }
@@ -180,11 +182,9 @@ main {
 }
 
 .card-item__title {
-  min-width: 44px;
-  min-height: 44px;
   font-size: 16px;
   font-weight: 700;
-  margin-top: 16px;
+  padding: 12px 0;
   transition: 0.3s opacity;
 }
 
@@ -193,6 +193,9 @@ main {
 }
 
 .card-item__title a {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 12px 0;
   text-decoration: none;
   color: var(--color-text);
 }
@@ -201,11 +204,14 @@ main {
   font-size: 12px;
   line-height: 1.6em;
   opacity: 1;
+  text-align: justify;
 }
 
 .card-item__link {
-  text-decoration: none;
-  margin-left: 4px;
+  min-width: 44px;
+  min-height: 44px;
+  border: none;
+  background: none;
   color: var(--color-secondary);
 }
 
