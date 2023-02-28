@@ -40,6 +40,11 @@ body {
    top: 0;
 }
 
+button {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75em;
+}
+
 /* App Bar */
 .navbar-container {
   width: 100%;
@@ -241,8 +246,9 @@ footer > p {
 }
 
 footer > p > a {
+  padding: 1rem 0.0625rem;
   text-decoration: none;
-  margin-right: 0.4em;
+  margin-right: 0.5em;
   color: var(--color-neutral);
 }
 
