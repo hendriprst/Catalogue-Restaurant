@@ -1,4 +1,5 @@
-import ApiSource from '../../data/api-source';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import '../../components/restaurant-item';
 
 const Favorite = {
   async render() {
@@ -9,8 +10,14 @@ const Favorite = {
   },
 
   async afterRender() {
-    const restaurants = await ApiSource.favoriteRestaurants();
-    console.log(restaurants);
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
+    const cardsContainer = document.querySelector('#cards');
+
+    restaurants.forEach((restaurant) => {
+      const restaurantItemElement = document.createElement('restaurant-item');
+      restaurantItemElement.properties = restaurant;
+      cardsContainer.appendChild(restaurantItemElement);
+    });
   },
 };
 

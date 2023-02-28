@@ -11,7 +11,7 @@ const Home = {
 
   async afterRender() {
     const restaurants = await ApiSource.exploreRestaurants();
-    const cardsContainer = this.querySelector('#cards');
+    const cardsContainer = document.querySelector('#cards');
 
     restaurants.forEach((restaurant) => {
       const restaurantItemElement = document.createElement('restaurant-item');
