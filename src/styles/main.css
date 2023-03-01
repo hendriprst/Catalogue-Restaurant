@@ -182,6 +182,39 @@ main {
   cursor: pointer;
 }
 
+@keyframes animate8345 {
+  0%,100% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.empty-message {
+  text-align: center;
+  font-weight: bolder;
+  letter-spacing: 0.025em;
+  padding: 1rem;
+  margin: 3rem auto;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 10px solid var(--color-secondary);
+  border-top-color: var(--color-tertiary);
+  animation: spin013151 1s linear infinite;
+  border-radius: 100%;
+}
+
+@keyframes spin013151 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Footer */
 
 footer {

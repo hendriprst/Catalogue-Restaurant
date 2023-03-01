@@ -21,13 +21,12 @@ class RestaurantItem extends LitElement {
     :host {
       width: 100%;
       border-radius: 12px;
-      border: 1px solid #B0EACD;
+      box-shadow: 0px 4px 8px 0 #B0EACD;
       transition: 0.2s ease-in-out;
     }
     
     .card-item:hover {
       cursor: pointer;
-      box-shadow: 0px 4px 8px #B0EACD;
     }
     
     .card-item__image {
@@ -130,8 +129,8 @@ class RestaurantItem extends LitElement {
       <article class="card-item">
         <img class="card-item__image" src="${CONFIG.BASE_IMAGE_URL_SMALL + this.properties.pictureId}" alt="${this.properties.name}" title="${this.properties.name}">
         <div class="card-item__body">
-          <p class="card-item__rating" tabindex="0">&#11088 ${this.properties.rating}/5 Reviews <span class="card-item__city">&#128205 Kota ${this.properties.city}</span></p>
-          <h3 class="card-item__title"><a href="/#/detail/${this.properties.id}" aria-label="Click to see detail">${this.properties.name}</a></h3>
+          <p class="card-item__rating">&#11088 ${this.properties.rating}/5 <span class="card-item__city">&#128205 Kota ${this.properties.city}</span></p>
+          <h3 class="card-item__title"><a href="/#/detail/${this.properties.id}" aria-label="Click to see detail ${this.properties.name}">${this.properties.name}</a></h3>
           <p class="card-item__description">${this.properties.description.substring(0, 140)}...</p>
         </div>
       </article>

@@ -1,5 +1,15 @@
+import swal from 'sweetalert';
 import FavoriteRestaurantIdb from '../data/favorite-restaurant-idb';
 import { createFavoriteButtonTemplate, createFavoritedButtonTemplate } from '../views/templates/template-creator';
+
+const sweetalert = (message) => {
+  swal({
+    icon: 'success',
+    title: message,
+    showConfirmButton: false,
+    timer: 1500,
+  });
+};
 
 const LoveButtonInitiator = {
   async init({ loveButtonContainer, restaurant }) {
@@ -30,6 +40,7 @@ const LoveButtonInitiator = {
     const loveButton = document.querySelector('#loveButton');
     loveButton.addEventListener('click', async () => {
       await FavoriteRestaurantIdb.putRestaurant(this._restaurant);
+      sweetalert('Restaurant has been added');
       this._renderButton();
     });
   },
@@ -40,6 +51,7 @@ const LoveButtonInitiator = {
     const loveButton = document.querySelector('#loveButton');
     loveButton.addEventListener('click', async () => {
       await FavoriteRestaurantIdb.deleteRestaurant(this._restaurant.id);
+      sweetalert('Restaurant has been removed');
       this._renderButton();
     });
   },
