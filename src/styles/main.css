@@ -21,6 +21,9 @@ html, body {
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--color-text);
   background: var(--color-neutral);
@@ -134,6 +137,7 @@ button {
 main {
   width: 100%;
   margin: 0 auto;
+  flex: 1;
 }
 
 .explore-container {
@@ -200,6 +204,8 @@ main {
   margin: 3rem auto;
 }
 
+/* Loader */
+
 .loader {
   width: 60px;
   height: 60px;
@@ -213,6 +219,45 @@ main {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Page Not Found */
+
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.page-not-found h2 {
+  font-size: 3em;
+  margin-bottom: 1rem;
+}
+
+.page-not-found p {
+  font-size: 1.5em;
+  margin-bottom: 2rem;
+}
+
+.page-not-found a {
+  font-size: 1.2em;
+  padding: 1rem 2rem;
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-neutral);
+  text-decoration: none;
+  border-radius: 100px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.page-not-found a:hover {
+  background-color: var(--color-neutral);
+  color: var(--color-text);
+  border: 1px solid var(--color-primary);
 }
 
 /* Footer */

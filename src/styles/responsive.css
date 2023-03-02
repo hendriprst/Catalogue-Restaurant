@@ -63,6 +63,10 @@
     margin-left: 16px;
     margin-right: 16px;
   }
+
+  .page-not-found a {
+    font-size: 1em;
+  }
   
   footer > p {
     font-size: 0.75em;

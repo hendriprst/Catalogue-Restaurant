@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import CONFIG from '../globals/config';
 import './categories-list';
 import './menus-list';
+import './review-card';
 
 class RestaurantDetail extends LitElement {
   static properties = {
@@ -21,7 +22,6 @@ class RestaurantDetail extends LitElement {
     super();
     this.categories = [];
     this.menus = {};
-    this.customerReviews = [];
   }
 
   static styles = css`
@@ -40,7 +40,8 @@ class RestaurantDetail extends LitElement {
     .restaurant__poster, 
     .restaurant__info h4, 
     .restaurant__overview h3, 
-    .restaurant__reviews h3 {
+    .restaurant__reviews h3,
+    .review-cards {
       margin: 12px 0;
     }
 
@@ -49,25 +50,10 @@ class RestaurantDetail extends LitElement {
       line-height: 1.5rem;
     }
 
-    .restaurant__reviews ul li {
-      text-align: justify;
-      margin-bottom: 12px;
-    }
-
-    .restaurant__reviews ul li span {
-      margin-left: 8px;
-      font-size: 10px;
-      font-weight: inherit;
-    }
-
-    ul .box {
-      background-color: #B0EACD;
-      color: #21BF73;
-      padding: 12px;
-    }
-
-    ul li {
-      list-style: none;
+    .review-cards {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     @media screen and (max-width: 499px) {
@@ -76,13 +62,17 @@ class RestaurantDetail extends LitElement {
         color: #FD5E53;
       }
     
-      .restaurant__info, .restaurant__overview {
+      .restaurant__info, .restaurant__overview, .restaurant__reviews h3 {
         text-align: left;
         margin: 12px 0;
       }
 
       .restaurant__overview > p {
         text-align: justify;
+      }
+
+      .review-cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
       }
     }
 
@@ -98,7 +88,7 @@ class RestaurantDetail extends LitElement {
         grid-column-end: 3;
       }
       
-      .restaurant__overview > p, .restaurant__reviews ul li {
+      .restaurant__overview > p, .review-cards {
         padding: 0 3em;
       }
   `;
@@ -124,9 +114,9 @@ class RestaurantDetail extends LitElement {
       </div>
       <div class="restaurant__reviews">
         <h3>Testimonials</h3>
-        <ul>
-          ${this.properties.customerReviews.map((review) => html`<li>@${review.name}<span>${review.date}</span> </br>&#10075;${review.review}&#10076;</li>`)}
-        </ul>
+        <div class="review-cards">
+          ${this.properties.customerReviews.map((review) => html`<review-card .review=${review}></review-card>`)}
+        </div>
       </div>
     `;
   }
