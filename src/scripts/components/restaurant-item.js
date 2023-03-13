@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import CONFIG from '../globals/config';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 class RestaurantItem extends LitElement {
   static properties = {
@@ -127,11 +129,11 @@ class RestaurantItem extends LitElement {
   render() {
     return html`
       <article class="card-item">
-        <img class="card-item__image" src="${CONFIG.BASE_IMAGE_URL_SMALL + this.properties.pictureId}" alt="${this.properties.name}" title="${this.properties.name}">
+        <img class="card-item__image lazyload" data-src="${CONFIG.BASE_IMAGE_URL_SMALL + this.properties.pictureId}" alt="${this.properties.name || '-'}" title="${this.properties.name}">
         <div class="card-item__body">
-          <p class="card-item__rating">&#11088 ${this.properties.rating}/5 <span class="card-item__city">&#128205 Kota ${this.properties.city}</span></p>
-          <h3 class="card-item__title"><a href="/#/detail/${this.properties.id}" aria-label="Click to see detail ${this.properties.name}">${this.properties.name}</a></h3>
-          <p class="card-item__description">${this.properties.description.substring(0, 140)}...</p>
+          <p class="card-item__rating">&#11088 ${this.properties.rating || '-'}/5 <span class="card-item__city">&#128205 Kota ${this.properties.city || '-'}</span></p>
+          <h3 class="card-item__title"><a href="/#/detail/${this.properties.id || '-'}" aria-label="Click to see detail ${this.properties.name || '-'}">${this.properties.name || '-'}</a></h3>
+          <p class="card-item__description">${this.properties.description.substring(0, 140) || '-'}...</p>
         </div>
       </article>
     `;

@@ -1,7 +1,8 @@
 import UrlParser from '../../routes/url-parser';
 import ApiSource from '../../data/api-source';
 import '../../components/restaurant-detail';
-import LoveButtonInitiator from '../../utils/love-button-initiator';
+import LoveButtonPresenter from '../../utils/love-button-presenter';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import { pageLoaderTemplate } from '../templates/template-creator';
 
 const Detail = {
@@ -30,8 +31,9 @@ const Detail = {
 
     loadingElement.style.display = 'none';
 
-    LoveButtonInitiator.init({
+    LoveButtonPresenter.init({
       loveButtonContainer: document.querySelector('#loveButtonContainer'),
+      favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: {
         id: restaurant.id,
         name: restaurant.name,

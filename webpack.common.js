@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const path = require('path');
 
 module.exports = {
@@ -11,6 +11,29 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 20000,
+      maxSize: 70000,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '~',
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -41,19 +64,6 @@ module.exports = {
         },
       ],
     }),
-    new WebpackPwaManifest({
-      name: 'EatExplore',
-      short_name: 'EEx',
-      description: 'Restaurant Catalogue for you',
-      background_color: '#ffffff',
-      theme_color: '#F9FCFB',
-      icons: [
-        {
-          src: path.resolve('src/public/icons/icon.png'),
-          sizes: [96, 128, 192, 256, 384, 512],
-          purpose: 'maskable',
-        },
-      ],
-    }),
+    new BundleAnalyzerPlugin(),
   ],
 };

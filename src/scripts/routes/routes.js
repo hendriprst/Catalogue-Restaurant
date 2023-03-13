@@ -1,14 +1,14 @@
 import Favorite from '../views/pages/favorite';
 import Detail from '../views/pages/detail';
 import Home from '../views/pages/home';
-import PageNotFound from '../views/pages/not-found';
+import { pageNotFoundTemplate } from '../views/templates/template-creator';
 
 const routes = {
   '/': Home,
   '/home': Home,
   '/detail/:id': Detail,
   '/favorite': Favorite,
-  '/(.*)': PageNotFound,
+  '/(.*)': pageNotFoundTemplate,
 };
 
 export default routes;

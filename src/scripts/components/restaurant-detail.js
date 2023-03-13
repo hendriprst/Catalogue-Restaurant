@@ -61,6 +61,11 @@ class RestaurantDetail extends LitElement {
         text-align: center;
         color: #FD5E53;
       }
+
+      h3 {
+        padding: 8px 0;
+        border-top: 4px solid #e2e2e2;
+      }
     
       .restaurant__info, .restaurant__overview, .restaurant__reviews h3 {
         text-align: left;
@@ -89,7 +94,7 @@ class RestaurantDetail extends LitElement {
       }
       
       .restaurant__overview > p, .review-cards {
-        padding: 0 3em;
+        padding: 0 4em;
       }
   `;
 
@@ -100,14 +105,14 @@ class RestaurantDetail extends LitElement {
       <div class="restaurant__info">
         <h3>Information</h3>
         <h4>Address</h4>
-        <p>${this.properties.address}, kota ${this.properties.city}</p>
+        <p>&#128205 ${this.properties.address}, ${this.properties.city}</p>
         <h4>Rating</h4>
         <p>&#11088 ${this.properties.rating}/5 Reviews</p>
         <categories-list .title="${'Categories'}" .items="${this.properties.categories}"></categories-list>
         <h3>Our Menus</h3>
         <menus-list title="Foods" .items="${this.properties.menus.foods}"></menus-list>
         <menus-list title="Drinks" .items="${this.properties.menus.drinks}"></menus-list>
-        </div>
+      </div>
       <div class="restaurant__overview">
         <h3>Overview</h3>
         <p>${this.properties.description}</p>

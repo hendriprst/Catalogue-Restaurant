@@ -1,7 +1,7 @@
 import DrawerInitiator from '../utils/drawer-initiator';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
-import PageNotFound from './pages/not-found';
+import { pageNotFoundTemplate } from './templates/template-creator';
 
 class App {
   constructor({ button, drawer, content }) {
@@ -21,7 +21,7 @@ class App {
 
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
-    const page = routes[url] ? routes[url] : PageNotFound;
+    const page = routes[url] ? routes[url] : pageNotFoundTemplate();
     this._content.innerHTML = await page.render();
     await page.afterRender();
     const skipLinkElem = document.querySelector('.skip-link');

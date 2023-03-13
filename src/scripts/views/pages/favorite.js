@@ -23,7 +23,7 @@ const Favorite = {
     if (restaurants.length === 0) {
       const messageElement = document.createElement('p');
       messageElement.classList.add('empty-message');
-      messageElement.innerHTML = 'You haven&#10076;t favorite restaurants';
+      messageElement.innerHTML = 'You have no favorite restaurants';
       exploreContainer.appendChild(messageElement);
     } else {
       restaurants.forEach((restaurant) => {

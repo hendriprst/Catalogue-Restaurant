@@ -23,7 +23,7 @@ class MenusList extends LitElement {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         grid-gap: 16px;
-        padding: 0 3em;
+        padding: 0 4em;
         margin: 16px 0 0;
         list-style: none;
       }
